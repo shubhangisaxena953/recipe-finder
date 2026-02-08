@@ -2,7 +2,7 @@
 A Vue.js-based web application that allows users to search for recipes based on available ingredients using the Spoonacular API. Users can save favorite recipes, generate shopping lists, and manage their data securely with Firebase authentication and Firestore.
 
 ## Features
-**Ingredient-Based Search:** Enter ingredients to find matching recipes with details like instructions and nutritional info.
+**Ingredient-Based Search:** Enter ingredients to find matching recipes with details like instructions and nutritional info.<br>
 **Favorites Management:** Save and remove favorite recipes (requires user authentication).
 **Shopping List Generation:** Create and manage shopping lists from selected recipes.
 **User Authentication:** Sign up, log in, and log out using Firebase Auth.
