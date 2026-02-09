@@ -1,10 +1,3 @@
-# Recipe Finder App - Single Python Script for IDLE (Updated with Caching for Faster Loading)
-# Run this script in IDLE or command line: python recipe_finder.py
-# Then open http://127.0.0.1:5000 in your browser.
-# Prerequisites: pip install flask requests flask-login flask-sqlalchemy requests-cache
-# Get a Spoonacular API key from https://spoonacular.com/food-api and replace below.
-# Updates: Added caching to speed up API calls (stores responses for 1 hour to avoid repeated slow requests).
-
 import os
 import requests
 from flask import Flask, render_template_string, request, redirect, url_for, flash
@@ -13,14 +6,13 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests_cache  # For caching API responses
 
-# Install caching (caches API calls for 1 hour to reduce load times)
 requests_cache.install_cache('spoonacular_cache', expire_after=3600)  # 3600 seconds = 1 hour
 
 # Replace with your Spoonacular API key
-SPOONACULAR_API_KEY = '686b70b85c12444a89267fa75fac6585'
+SPOONACULAR_API_KEY = 'Insert your spoonacular api key'
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'shubhangisaxena2007#'
+app.config['SECRET_KEY'] = 'Enter your secret key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///recipe_finder.db'
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -84,7 +76,6 @@ def get_recipe_details(recipe_id):
         print(f"Request failed: {e}")
         return {}
 
-# HTML templates as strings (unchanged)
 base_template = """
 <!DOCTYPE html>
 <html lang="en">
@@ -218,7 +209,6 @@ signup_template = base_template.replace("{% block content %}{% endblock %}", """
 <a href="/login">Already have an account? Login</a>
 """)
 
-# Routes (unchanged)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     recipes = []
@@ -317,3 +307,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
